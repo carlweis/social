@@ -17,6 +17,9 @@ class User < ActiveRecord::Base
   has_many :text_posts, dependent: :destroy
   has_many :image_posts, dependent: :destroy
 
+  # comments
+  has_many :comments
+
   def following?(leader)
     leaders.include? leader
   end
