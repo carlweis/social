@@ -9,13 +9,13 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
 
-   # registration
+  # registration
   get 'signup', to: 'users#new', as: 'signup'
 
   # login, logout
-  get  'login', to: 'sessions#new', as: 'login'
-  post 'login', to:  'sessions#create'
-  get  'logout', to: 'sessions#destroy', as: 'logout'
+  get 'login', to: 'sessions#new', as: 'login'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy', as: 'logout'
 
   # user routes
   post 'follow/:id', to: 'users#follow', as: 'follow_user'
