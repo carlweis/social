@@ -37,8 +37,12 @@ class User < ActiveRecord::Base
 
   def unfollow(leader)
     if leader != self && following?(leader)
-      leaders.destroy(leader)
+      # leaders.destroy(leader)
     end
+  end
+
+  def can_follow(leader)
+    leader != self && !following?(leader)
   end
 
   def timeline_user_ids

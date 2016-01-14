@@ -58,4 +58,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to user_url(user2)
   end
 
+  test 'follow should require login' do
+    user = users(:user1)
+
+    get :follow, {id: user.id}
+
+    assert_redirected_to login_url
+  end
+
 end
