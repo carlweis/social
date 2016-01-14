@@ -1,5 +1,9 @@
 ## Social Network
 
 ### Models
-User
-Subscription
+- User
+- Subscription
+- Followers
+- Leaders
+- Posts
+- Comments
