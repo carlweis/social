@@ -1,6 +1,7 @@
 <small>
   <% if current_user && current_user.can_follow(@user) %>
       <%= link_to 'Follow', follow_user_path(@user),
+                  method: :post,
                   class: 'btn btn-primary btn-sm pull-right' %>
   <% end %>
 

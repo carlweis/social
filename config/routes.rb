@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   get  'logout', to: 'sessions#destroy', as: 'logout'
 
   # user routes
-  get 'follow/:id', to: 'users#follow', as: 'follow_user'
+  post 'follow/:id', to: 'users#follow', as: 'follow_user'
 
 end

@@ -1,3 +1,6 @@
+<div class="pull-left">
+  <%= link_to 'Home', root_path %>
+</div>
 <div class="pull-right">
   <% if current_user %>
       <strong><%= link_to current_user.name, user_path(current_user) %></strong>&nbsp;|&nbsp;
