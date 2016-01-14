@@ -6,7 +6,7 @@
     </h3>
   </div>
   <div class="panel-body">
-    <p><em>By <%= text_post.user.name %></em></p>
+    <p><em>By <%= link_to text_post.user.name, user_path(text_post.user) %></em></p>
     <%= text_post.body %>
   </div>
 </div>

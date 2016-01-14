@@ -6,7 +6,7 @@
     </h3>
   </div>
   <div class="panel-body">
-    <p><em>By <%= image_post.user.name %></em></p>
+    <p><em>By <%= link_to image_post.user.name, user_path(image_post.user) %></em></p>
 
     <%= link_to (image_tag image_post.url, class: 'img-responsive'), post_path(image_post) %>
 
