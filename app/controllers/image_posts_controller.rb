@@ -1,7 +1,19 @@
 class ImagePostsController < ApplicationController
+  before_action :set_image_post, :only => [:edit, :update]
 
   def new
     @image_post = ImagePost.new
+  end
+
+  def edit
+  end
+
+  def update
+    if @image_post.update(image_post_params)
+      redirect_to post_path(@image_post), notice: 'Post Updated!'
+    else
+      render :edit, alert: 'Error updating post.'
+    end
   end
 
   def create
@@ -15,5 +27,9 @@ class ImagePostsController < ApplicationController
 
   def image_post_params
     params.require(:image_post).permit(:title, :url)
+  end
+
+  def set_image_post
+    @image_post = current_user.image_posts.find(params[:id])
   end
 end

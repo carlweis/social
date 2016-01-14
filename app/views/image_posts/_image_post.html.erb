@@ -4,6 +4,9 @@
       <%= link_to (image_post.title ? image_post.title : 'Untitled'), post_path(image_post) %>
       <span class="pull-right"><%= time_ago_in_words(image_post.created_at) %></span>
     </h3>
+    <% if image_post.user == current_user %>
+        <p><%= link_to 'Edit', edit_image_post_path(image_post) %></p>
+    <% end %>
   </div>
   <div class="panel-body">
     <p><em>By <%= link_to image_post.user.name, user_path(image_post.user) %></em></p>
