@@ -1,0 +1,14 @@
+<% # signup form model errors %>
+<% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <strong>
+        <%= pluralize(@user.errors.count, 'error') %>
+        prevented you from signing up:
+      </strong>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
