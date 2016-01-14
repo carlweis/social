@@ -4,5 +4,18 @@
 
 <%= render @post %>
 
-<%= link_to 'Home', posts_path,
-            class: 'btn btn-default' %>
+<h3>Comments</h3>
+<%= render @post.comments %>
+
+<h4>Leave a Comment</h4>
+<%= form_for @post.comments.build do |f| %>
+    <div class="form-group">
+      <%= f.text_area :body, class: 'form-control', placeholder: 'Comment' %>
+    </div>
+    <%= f.hidden_field :post_id %>
+    <div class="form-group">
+      <%= f.submit 'Post Comment', class: 'btn btn-success btn-block' %>
+    </div>
+<% end %>
+
+<%= link_to 'Home', posts_path, class: 'btn btn-default' %>
