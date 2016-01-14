@@ -1,5 +1,10 @@
 <div class="comment">
   <p><em><%= comment.user.name %> said:</em></p>
+  <% if @can_moderate %>
+    <%= link_to 'Delete Comment', comment_path(comment.id),
+                class: 'btn btn-danger btn-sm pull-right', method: :delete,
+                data: {confirm: 'Are you sure'} %>
+  <% end %>
   <blockquote>
     <%= comment.body %>
   </blockquote>
