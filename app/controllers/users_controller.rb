@@ -1,5 +1,20 @@
 class UsersController < ApplicationController
 
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.posts.order('created_at DESC')
+  end
+
+  def follow
+    @user = User.find(params[:id])
+    if current_user.follow!(@user)
+      redirect_to @user, notice: "Your now following #{@user.name}"
+    else
+      current_user.unfollow(@user)
+      redirect_to @user, alert: "You are no longer following #{user.name}"
+    end
+  end
+
   def new
     @user = User.new
   end
