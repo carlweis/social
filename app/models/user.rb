@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   # validations
   validates :email, presence: true, uniqueness: true
 
+
   # subscriptions
   has_many :subscriptions, foreign_key: :follower_id,
            dependent: :destroy
